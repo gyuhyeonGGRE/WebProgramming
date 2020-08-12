@@ -11,7 +11,7 @@
 %>
 	<%
 		if ((session.getAttribute("id") == null)) {
-			/* memberLoginForm.jsp ¿¡¼­ ÀúÀåÇÑ ¼¼¼Ç °ª */
+			/* memberLoginForm.jsp ì—ì„œ ì €ì¥í•œ ì„¸ì…˜ ê°’ */
 			out.println("<script>");
 			out.println("location.href='memberLoginForm.jsp'");
 			out.println("</script>");
@@ -20,19 +20,19 @@
 	<form action="memo_ok.jsp" method="post">
 		<table border=1 align="center">
 			<tr>
-				<td colspan=5 align=center width="650px">ÇÑ ÁÙ ¸Ş¸ğÀå</td>
+				<td colspan=5 align=center width="650px">í•œ ì¤„ ë©”ëª¨ì¥</td>
 			</tr>
 			<tr>
-				<td>ÀÛ¼ºÀÚ</td>
+				<td>ì‘ì„±ì</td>
 				<td><input name="name" type="text"
 					VALUE="<%=session.getAttribute("id")%>"></td>
-				<!-- ·Î±×ÀÎÇÏ°í ³ª¸é ÀÌ°÷¿¡¼­ ÀÌ¸§ °ª¿¡ °ªÀ» ³Ö¾îÁÜ -->
-				<td>ºñ¹Ğ¹øÈ£</td>
+				<!-- ë¡œê·¸ì¸í•˜ê³  ë‚˜ë©´ ì´ê³³ì—ì„œ ì´ë¦„ ê°’ì— ê°’ì„ ë„£ì–´ì¤Œ zz-->
+				<td>ë¹„ë°€ë²ˆí˜¸</td>
 				<td><input name="pass" type="password"></td>
-				<td rowspan=2><input value="ÀúÀåÇÏ±â" type="submit"></td>
+				<td rowspan=2><input value="ì €ì¥í•˜ê¸°" type="submit"></td>
 			</tr>
 			<tr>
-				<td>³» ¿ë</td>
+				<td>ë‚´ ìš©</td>
 				<td colspan=3><input name="title" type="text" size="70"></td>
 		</table>
 	</form>
@@ -50,7 +50,7 @@
 		try {
 			Class.forName(driver);
 			conn = DriverManager.getConnection(url, "kbs123", "pass123");
-			// ¿©·¯ SQL  »ç¿ëÇÏ·Á¸é ÀÌ ÀÌÇÏºÎÅÍ ´Ù½Ã Ãß°¡ ÇÏ¿© »ç¿ëÇÏ¸é µÊ.
+			// ì—¬ëŸ¬ SQL  ì‚¬ìš©í•˜ë ¤ë©´ ì´ ì´í•˜ë¶€í„° ë‹¤ì‹œ ì¶”ê°€ í•˜ì—¬ ì‚¬ìš©í•˜ë©´ ë¨.
 
 			pstmt = conn.prepareStatement("SELECT * FROM memo_Test where name!='admin'order by indate desc");
 			rs = pstmt.executeQuery();
@@ -82,7 +82,7 @@
 	%>
 	<table border="1" cellspacing="1" align="center">
 		<tr>
-			<td colspan=5 align=center>ÃÑ <%=res %>°³ÀÇ ±ÛÀÌ ÀÖ½À´Ï´Ù.</td>
+			<td colspan=5 align=center>ì´ <%=res %>ê°œì˜ ê¸€ì´ ìˆìŠµë‹ˆë‹¤.</td>
 		</tr>
 		<%
 			while (i < 3) {
@@ -100,7 +100,7 @@
 				if (session.getAttribute("id").equals("admin")) {
 			%>
 			<td width="40px"><a
-				href="memo_Delete.jsp?num=<%=rs2.getString(1)%>">»èÁ¦</a></td>
+				href="memo_Delete.jsp?num=<%=rs2.getString(1)%>">ì‚­ì œ</a></td>
 			<%
 				}}
 				i++;
@@ -120,7 +120,7 @@
 			<td width="300px"><%=rs.getString(3)%></td>
 			<td width="90px"><%=(rs.getString("indate")).substring(0, 10)%></td>
 			<%	if(session.getAttribute("id").equals("admin"))	{%>
-					<td width="40px"><a href="memo_Delete.jsp?num=<%=rs.getString(1)%>">»èÁ¦</a></td>
+					<td width="40px"><a href="memo_Delete.jsp?num=<%=rs.getString(1)%>">ì‚­ì œ</a></td>
 <%       } %>
 		</tr>
 		<%} %>
